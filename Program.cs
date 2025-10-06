@@ -5,9 +5,12 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
     {
-        policy.WithOrigins("http://localhost:3000") // React app URL
-              .AllowAnyHeader()
-              .AllowAnyMethod();
+        policy.WithOrigins(
+            "http://localhost:3000",  // Local development
+            "https://react-frontend-yourname.xxx.azurestaticapps.net"  // Your deployed React app
+        )
+        .AllowAnyHeader()
+        .AllowAnyMethod();
     });
 });
 
